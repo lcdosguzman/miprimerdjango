@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #3a4d63;
+            color: #fff;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s; /* Agregamos transición al color */
+        }
+
+        nav ul li a:hover {
+            color: #ffd700; /* Cambiamos el color al pasar el ratón */
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            background-color: #3a4d63;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <header>
+        <div class="logo">MiLogo</div>
+        <nav>
+            <ul>
+                <li><a href="aboutme">Sobre mí</a></li>
+                <li><a href="works">Trabajos</a></li>
+                <li><a href="contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Contacto</h1>
+    <h2>{{pais}},{{ciudad}}</h2>
+
+  <form method="post" action="#">
+    <label for="id_nombre">Nombre:</label>
+    <input type="text" name="nombre" id="id_nombre" required>
+
+    <label for="id_correo">Correo Electrónico:</label>
+    <input type="email" name="correo" id="id_correo" required>
+
+    <label for="id_mensaje">Mensaje:</label>
+    <textarea name="mensaje" id="id_mensaje" rows="4" required></textarea>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+    <footer>
+        <p>&copy; Derechos Reservados @Simon Guzman 2024</p>
+    </footer>
+
+</body>
+</html>

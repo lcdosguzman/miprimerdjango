@@ -1,41 +1,32 @@
 from django.http import HttpResponse
 from django.template import Template, Context
+from django.template import loader
 
-
-def saludo(request):
-    return HttpResponse ("hola simon")
-
-def contacto(request):
-    return HttpResponse ("datos de contacto")
-
-def servicio(request):
-    var = "programador"
-    return HttpResponse (var)
-
-def eldoble(request,numero):
-    
-    return HttpResponse (int(numero)*2)
-
-def eldobleqp(request,numero):
- 
-    numero_param = int(request.GET.get('numero', None))
-    return HttpResponse (int(numero)*numero_param)
-
-def probando_template(request):
-
-    # Abrimos el archivo html
-    mi_html = open('./plantillas/template1.html')
-
-    # Creamos el template haciendo uso de la clase Template
+def home(request):
+    mi_html = open('./templates/template1.html')
     plantilla = Template(mi_html.read())
-
-    # Cerramos el archivo previamente abierto, ya que lo tenemos cargado en la variable plantilla
     mi_html.close()
-
-    # Creamos un contexto, más adelante vamos a aprender a usarlo, ahora lo necesitamos aunque sea vacío para que funcione
+    plantilla = loader.get_template('template1.html')
     mi_contexto = Context()
-
-    # Terminamos de construír el template renderizándolo con su contexto
     documento = plantilla.render(mi_contexto)
-
     return HttpResponse(documento)
+
+def aboutme(request):
+    return HttpResponse ("Yo soy Simon")
+
+def works(request):
+    anios = [2016,2017,2018,2019,2020,2021,2022,2023,2024]
+    diccionario = {"anios":anios}
+    plantilla = loader.get_template('template2.html')
+    documento = plantilla.render(diccionario)
+    return HttpResponse(documento)
+
+def contact(request):
+    ciudad = "Buenos Aires"
+    pais = "Argentina"
+    anios = [2016,2017,2018,2019,2020,2021,2022,2023,2024]
+    diccionario = {"ciudad":ciudad,"pais":pais,"anios":anios}
+    plantilla = loader.get_template('template3.html')
+    documento = plantilla.render(diccionario)
+    return HttpResponse(documento)
+
